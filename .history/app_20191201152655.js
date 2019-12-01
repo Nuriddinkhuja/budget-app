@@ -23,6 +23,7 @@ var controller = (function(budgetCtrl, UICtrl){
     document.addEventListener('keypress', function(event){
 
         if(event.keyCode === 13 || event.which === 13){
+            console.log('clicked enter');
             ctrlAddItem();
         }
     });
