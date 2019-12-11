@@ -41,7 +41,7 @@ var controller = (function(budgetCtrl, UICtrl){
         console.log(input);      
     }
 
-    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+    document.querySelector(DOMstrings.inputBtn).addEventListener('click', ctrlAddItem);
 
     document.addEventListener('keypress', function(event){
 
