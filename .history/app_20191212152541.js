@@ -40,7 +40,7 @@ var budgetController = (function(){
             if(type === 'exp'){
                 console.log(data.allItems[type]);
                 
-                console.log(data.allItems[type][data.allItems[type].lenght - 1].id);
+                console.log(data.allItems[type][data.allItems[type].lenght]);
                 newItem = new Expense(ID, des, val);
             }else if(type === 'inc'){
                 newItem = new Income(ID, des, val)

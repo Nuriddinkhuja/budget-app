@@ -38,9 +38,6 @@ var budgetController = (function(){
 
             //Create new item based on 'inc' or 'exp' type
             if(type === 'exp'){
-                console.log(data.allItems[type]);
-                
-                console.log(data.allItems[type][data.allItems[type].lenght - 1].id);
                 newItem = new Expense(ID, des, val);
             }else if(type === 'inc'){
                 newItem = new Income(ID, des, val)
@@ -90,7 +87,7 @@ var UIController = (function(){
             // }
             
             if(type === 'inc'){
-                element = DOMstrings.incomeContainer;
+                element.DOMstrings.incomeContainer;
 
                 html = `<div class="item clearfix" id="income-%id%">
                     <div class="item__description">%description%</div>
@@ -102,7 +99,7 @@ var UIController = (function(){
                     </div>
                 </div>`
             }else if(type === 'exp'){
-            element = DOMstrings.expensesContainer
+            element.DOMstrings.expensesContainer
 
                 html = `<div class="item clearfix" id="expense-%id%">
                     <div class="item__description">%description%</div>
@@ -122,7 +119,7 @@ var UIController = (function(){
             newHtml = newHtml.replace('%value%', obj.value);
 
             //Insert the HTML into DOM
-            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+            document.querySelector(element);
 
             
         },
@@ -161,9 +158,6 @@ var controller = (function(budgetCtrl, UICtrl){
 
         // 2. Add the item to the budget Controller
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-
-        // 3. Add the Item to the UI
-        UICtrl.addListItem(newItem, input.type); 
 
     };
 

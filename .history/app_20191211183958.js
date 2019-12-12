@@ -38,9 +38,6 @@ var budgetController = (function(){
 
             //Create new item based on 'inc' or 'exp' type
             if(type === 'exp'){
-                console.log(data.allItems[type]);
-                
-                console.log(data.allItems[type][data.allItems[type].lenght - 1].id);
                 newItem = new Expense(ID, des, val);
             }else if(type === 'inc'){
                 newItem = new Income(ID, des, val)
@@ -90,17 +87,11 @@ var UIController = (function(){
             // }
             
             if(type === 'inc'){
+                console.log('works');
+                
                 element = DOMstrings.incomeContainer;
 
-                html = `<div class="item clearfix" id="income-%id%">
-                    <div class="item__description">%description%</div>
-                    <div class="right clearfix">
-                        <div class="item__value">%value%</div>
-                        <div class="item__delete">
-                            <button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button>
-                        </div>
-                    </div>
-                </div>`
+                html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             }else if(type === 'exp'){
             element = DOMstrings.expensesContainer
 

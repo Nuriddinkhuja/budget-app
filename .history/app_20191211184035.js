@@ -38,9 +38,6 @@ var budgetController = (function(){
 
             //Create new item based on 'inc' or 'exp' type
             if(type === 'exp'){
-                console.log(data.allItems[type]);
-                
-                console.log(data.allItems[type][data.allItems[type].lenght - 1].id);
                 newItem = new Expense(ID, des, val);
             }else if(type === 'inc'){
                 newItem = new Income(ID, des, val)

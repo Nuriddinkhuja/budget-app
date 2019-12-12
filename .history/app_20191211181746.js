@@ -38,9 +38,6 @@ var budgetController = (function(){
 
             //Create new item based on 'inc' or 'exp' type
             if(type === 'exp'){
-                console.log(data.allItems[type]);
-                
-                console.log(data.allItems[type][data.allItems[type].lenght - 1].id);
                 newItem = new Expense(ID, des, val);
             }else if(type === 'inc'){
                 newItem = new Income(ID, des, val)
@@ -82,7 +79,7 @@ var UIController = (function(){
 
         addListItem: function(obj, type){
             //Create html string with placeholder text
-            var html, newHtml, element;
+            var html, newHtml;
             // if(type === 'inc'){
             //     html = '<div class="item clearfix" id="income-0"><div class="item__description">Salary</div><div class="right clearfix"><div class="item__value">+ 2,100.00</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>'
             // }else if(type === 'exp'){
@@ -90,8 +87,6 @@ var UIController = (function(){
             // }
             
             if(type === 'inc'){
-                element = DOMstrings.incomeContainer;
-
                 html = `<div class="item clearfix" id="income-%id%">
                     <div class="item__description">%description%</div>
                     <div class="right clearfix">
@@ -102,8 +97,6 @@ var UIController = (function(){
                     </div>
                 </div>`
             }else if(type === 'exp'){
-            element = DOMstrings.expensesContainer
-
                 html = `<div class="item clearfix" id="expense-%id%">
                     <div class="item__description">%description%</div>
                     <div class="right clearfix">
@@ -119,10 +112,7 @@ var UIController = (function(){
             // Replace the placeholder text with some actual data
             newHtml = html.replace('%id%', obj.id);
             newHtml = newHtml.replace('%description%', obj.description);
-            newHtml = newHtml.replace('%value%', obj.value);
-
-            //Insert the HTML into DOM
-            document.querySelector(element).insertAdjacentHTML('beforeend', newHtml);
+            newHtml = newHtml.replace('%value%', obj.value)
 
             
         },
@@ -161,9 +151,6 @@ var controller = (function(budgetCtrl, UICtrl){
 
         // 2. Add the item to the budget Controller
         newItem = budgetCtrl.addItem(input.type, input.description, input.value);
-
-        // 3. Add the Item to the UI
-        UICtrl.addListItem(newItem, input.type); 
 
     };
 
